@@ -1,16 +1,35 @@
-const fs = require('fs');
-const express = require('express');
+require("dotenv").config();
+const fs = require("fs");
+const express = require("express");
+const http = require("http");
+const path = require("path");
+const { response } = require("express");
 
+// set up express
+const port = process.env.PORT || 3000;
 const app = express();
-const PORT = 8080
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, `./public/index.html`))
+// static files
+app.use(express.static("public"));
+app.use(express.json());
+
+// routes
+app.get('/', (request,response) => {
+    response.sendFile(path.join(__dirname, `./public/index.html`))
 })
 
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, `./public/notes.html`)))
+app.get('/notes', (request, res) => res.sendFile(path.join(__dirname, `./public/notes.html`)))
 
-app.get('/api/notes', (req, res) => res.json(db))
+
+// show all notes
+app.get('/api/notes', (request, response) => 
+    fs.readFile("./db/db.json", "utf8", (error, jsonString) => {
+        if (error) {
+            console.log("fail", error);
+            return;
+        }
+        response.json(JSON.parse(jsonString));
+    }))
 
 app.post('/api/notes', (req, res) => {
     const note = {
