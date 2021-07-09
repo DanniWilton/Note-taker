@@ -17,7 +17,12 @@ app.use(notesRoutes);
 
 const PORT = 8080
 
-
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+    db = db.filter(data => data.id !== noteId);
+    writeToDb();
+    res.send("Note deleted")
+})
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: ${PORT}`);

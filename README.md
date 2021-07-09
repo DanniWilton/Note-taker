@@ -1,5 +1,43 @@
 # Note-taker
 
+## Description
+
+A handy note taker that saves all your notes. 
+
+This app uses:
+- Javascript
+- Express
+- JSON
+- HTML
+
+## Installation 
+
+To install the notetaker application
+- Clone the repo
+- Open up your terminal and type "npm install"
+- Once the dependencies are installed, in the same terminal type "npm run watch", this starts the server
+- Enter the server PORT number in the local host address in your browser OR click on the deployed website link below.
+
+## Usage
+
+- When at the website, click on the "Get Started" button, this opens up the notes page
+- On the notes page you can enter your new in the Title and Text sections
+- Select the SAVE icon to save your note
+- Your new note will appear on the left hand side of the page
+- Delete function does not work yet
+
+## Links
+
+Github Repo: https://github.com/DanniWilton/Note-taker 
+Heroku Depo: https://secret-shore-49921.herokuapp.com/
+
+## Screen Captures
+![Capture](./Develop/screenshots/Capture.JPG)
+![Capture1](./Develop/screenshots/Capture1.JPG)
+![Capture2](./Develop/screenshots/Capture2.JPG)
+![Capture3](./Develop/screenshots/Capture3.JPG)
+
+
 
 ## User Story
 
